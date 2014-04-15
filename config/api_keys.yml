@@ -1,0 +1,32 @@
+# production version
+  #campaign_monitor_key = "99737"
+  #campaign_monitor_secret = "g000yP00lkVOw0tZfr7vX5dKZZw900a00t0bj3RwYT0jOZSd000b0AI7lr0ypBB50j0vRyzy09uW0If0"
+  #config.omniauth  :createsend, campaign_monitor_key, campaign_monitor_secret, :scope => 'ViewReports,CreateCampaigns,SendCampaigns,ManageLists,ImportSubscribers'
+
+  # local dev
+  #campaign_monitor_key = "99955"
+  #campaign_monitor_secret = "7I37P565ZDKA5H5W3xIio55HLcgT1h55gS5Yk5BS5kx8cW65oN5uiDCy5kV54cD5277Rl5qy21qvol4U"
+  #config.omniauth  :createsend, campaign_monitor_key, campaign_monitor_secret, :scope => 'ViewReports,CreateCampaigns,SendCampaigns,ManageLists,ImportSubscribers'
+
+
+defaults: &defaults
+  campaign_monitor:
+    api_key: "99955"
+    api_secret: "7I37P565ZDKA5H5W3xIio55HLcgT1h55gS5Yk5BS5kx8cW65oN5uiDCy5kV54cD5277Rl5qy21qvol4U"
+
+
+development:
+  <<: *defaults
+
+
+staging:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  campaign_monitor:
+      api_key: "99737"
+      api_secret: "g000yP00lkVOw0tZfr7vX5dKZZw900a00t0bj3RwYT0jOZSd000b0AI7lr0ypBB50j0vRyzy09uW0If0"
+
