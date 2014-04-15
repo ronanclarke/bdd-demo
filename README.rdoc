@@ -1,28 +1,29 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The app shall have a landing page explaining the service
 
-Things you may want to cover:
+The app shall have a pricing page
 
-* Ruby version
+	the pricing page shall have details of the following 3 plans
+		Ultimate $299 per year - max 50 lambas per month
+		Premium  $99 per year - max 20 lambas per month
+		Premium  $49 per year - 5 lambas per month
 
-* System dependencies
+	each plan will have a subscribe button
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+	clicking on a subscribe button should bring me to the purchase page for the plan
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+The app shall have a signup page to sign up as a new authenticated user
+	There should be a link to signin
+	We should send a welcome email on signup
+
+The app shall have a signin page to login as an existing authenticated user
+
+The app shall have a purchase page
+	the purchase page should display details of the plan we wish to purchase
+	the user must be authenticated to view the purchase page
+		if we are not authenticated we will be redirected to the signup page
+
+	clicking on purchase should create a subscription record for the user
+		the subscription should be in status AWAITING_PAYMENT
