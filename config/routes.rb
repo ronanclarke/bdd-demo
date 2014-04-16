@@ -3,8 +3,12 @@
 BddDemo::Application.routes.draw do
 
 
+  resources :plans
+
   devise_for :users
 
+
+  get "pricing" => 'home#pricing'
 
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.

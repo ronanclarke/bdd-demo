@@ -1,0 +1,24 @@
+<h1>Pricing Page</h1>
+
+
+<div class="row">
+
+  <% @plans.each do |plan| %>
+      <div class="col-lg-4 ">
+        <div class="panel  panel-default">
+          <div class="panel-heading">
+          <%= plan.name %>
+          </div>
+
+          <div class="panel-body">
+            <%= image_tag "#{plan.name.downcase}.png",:id=>"plan_image_#{plan.name.downcase}" %>
+
+          </div>
+
+        </div>
+      </div>
+  <% end %>
+
+
+</div>
+

@@ -6,5 +6,8 @@ FactoryGirl.define do
     password "password"
   end
 
+  factory :plan do
+
+  end
 
 end
