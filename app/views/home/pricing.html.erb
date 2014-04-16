@@ -12,7 +12,7 @@
 
           <div class="panel-body">
             <%= image_tag "#{plan.name.downcase}.png",:id=>"plan_image_#{plan.name.downcase}" %>
-
+            <%= link_to("Subscribe",new_subscription_path,:class=>"subscribe") %>
           </div>
 
         </div>

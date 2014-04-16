@@ -10,6 +10,5 @@ class AddDemoPlans < ActiveRecord::Migration
 
   def down
     Plan.destroy_all
-
   end
 end

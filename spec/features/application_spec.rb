@@ -12,6 +12,8 @@ describe :Application, type: :feature do
 
   it "should have a pricing page" do
 
+    login
+
     visit pricing_path
 
     page.should have_content("Pricing")
@@ -25,7 +27,21 @@ describe :Application, type: :feature do
 
     end
 
-    #find(".subscribe").size.should be(@plans.size)
+    all(".subscribe").size.should be(@plans.size)
+
+    all(".subscribe").first.click
+
+    current_path.should eq(new_subscription_path)
+
+  end
+
+  it "requires you are logged in to see the pricing page" do
+
+    visit pricing_path
+
+    current_path.should_not eq(pricing_path)
+
+    page.should have_content("Sign up")
 
   end
 
