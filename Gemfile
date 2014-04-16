@@ -36,25 +36,8 @@ end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
-# Use unicorn as the app server
-gem 'unicorn'
-
-# Use Capistrano for deployment
-gem 'capistrano', group: :development
-#
-# Use debugger
-# gem 'debugger', group: [:development, :test]
 
 
-# custom gems
-
-
-group :development do
-  gem 'capistrano-unicorn', :require => false
-  gem "letter_opener" # open sent mails in the browser
-  gem "faker" # generate fake data on demand
-
-end
 
 
 gem 'pg' # postgres db
@@ -88,9 +71,6 @@ gem 'browser'
 
 gem 'jquery-turbolinks' # workaround jquery ready issues caused by turbo links
 
-# testing
-gem "rspec-rails", :group => [:development, :test]
-
 
 # custom page caching
 gem 'actionpack-page_caching'
@@ -98,13 +78,29 @@ gem 'actionpack-page_caching'
 # redirect naked domain to www
 gem 'refraction'
 
-#integrations
 gem 'omniauth'
 gem 'omniauth-createsend' #campaign monitor
 gem 'createsend'
 
-group :test do
+group :test, :development do
+  gem "rspec-rails"
   gem 'sqlite3'
+  gem "faker" # generate fake data on demand
+end
+
+group :development do
+
+  gem "letter_opener" # open sent mails in the browser
+
+
+end
+
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+
+group :test do
+
   gem "factory_girl_rails"
   gem "capybara"
   gem "capybara-webkit"

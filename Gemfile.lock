@@ -35,14 +35,6 @@ GEM
       bcrypt (>= 3.1.3)
     browser (0.4.1)
     builder (3.1.4)
-    capistrano (2.15.5)
-      highline
-      net-scp (>= 1.0.0)
-      net-sftp (>= 2.0.0)
-      net-ssh (>= 2.0.14)
-      net-ssh-gateway (>= 1.1.0)
-    capistrano-unicorn (0.2.0)
-      capistrano (< 3.0)
     capybara (2.2.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -73,6 +65,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    commonjs (0.2.7)
     compass (0.12.3)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -136,10 +129,9 @@ GEM
     guard-zeus (2.0.0)
       guard (~> 2.0)
       zeus (~> 0)
-    hashie (2.0.5)
-    highline (1.6.21)
+    hashie (2.1.1)
     hike (1.2.3)
-    httparty (0.13.0)
+    httparty (0.13.1)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     i18n (0.6.9)
@@ -164,11 +156,16 @@ GEM
     kaminari-bootstrap (3.0.1)
       kaminari (>= 0.13.0)
       rails
-    kgio (2.9.2)
     launchy (2.4.2)
       addressable (~> 2.3)
+    less (2.5.0)
+      commonjs (~> 0.2.7)
+    less-rails (2.5.0)
+      actionpack (>= 3.1)
+      less (~> 2.5.0)
     letter_opener (1.2.0)
       launchy (~> 2.2)
+    libv8 (3.16.14.3)
     listen (2.7.1)
       celluloid (>= 0.15.2)
       celluloid-io (>= 0.15.0)
@@ -188,11 +185,7 @@ GEM
     multipart-post (2.0.0)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
-    net-sftp (2.1.2)
-      net-ssh (>= 2.6.5)
     net-ssh (2.8.0)
-    net-ssh-gateway (1.2.0)
-      net-ssh (>= 2.6.5)
     nio4r (1.0.0)
     nokogiri (1.5.11)
     oauth2 (0.9.3)
@@ -237,7 +230,6 @@ GEM
       activesupport (= 4.0.2)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    raindrops (0.13.0)
     rake (10.1.1)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.3)
@@ -247,6 +239,7 @@ GEM
     redis (3.0.7)
     redis-namespace (1.4.1)
       redis (~> 3.0.4)
+    ref (1.0.5)
     refraction (0.2.0)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
@@ -309,6 +302,9 @@ GEM
     sqlite3 (1.3.9)
     subexec (0.2.3)
     temple (0.6.7)
+    therubyracer (0.12.1)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.18.1)
     thread_safe (0.2.0)
       atomic (>= 1.1.7, < 2)
@@ -319,14 +315,15 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.2.1)
       coffee-rails
+    twitter-bootstrap-rails (2.2.8)
+      actionpack (>= 3.1)
+      execjs
+      rails (>= 3.1)
+      railties (>= 3.1)
     tzinfo (0.3.39)
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    unicorn (4.8.2)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
     warden (1.2.3)
       rack (>= 1.0)
     websocket (1.0.7)
@@ -341,8 +338,6 @@ PLATFORMS
 DEPENDENCIES
   actionpack-page_caching
   browser
-  capistrano
-  capistrano-unicorn
   capybara
   capybara-webkit
   carrierwave
@@ -364,6 +359,7 @@ DEPENDENCIES
   jquery-turbolinks
   kaminari
   kaminari-bootstrap (~> 3.0.1)
+  less-rails
   letter_opener
   mini_magick
   omniauth
@@ -381,6 +377,7 @@ DEPENDENCIES
   sinatra
   slim
   sqlite3
+  therubyracer
   turbolinks
+  twitter-bootstrap-rails
   uglifier (>= 1.3.0)
-  unicorn

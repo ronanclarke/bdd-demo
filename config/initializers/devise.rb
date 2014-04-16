@@ -4,14 +4,14 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  config.secret_key = 'bd2ef8ef3a5152d0cfd095a1baa07fe05dbc31589f3404e41781c30631a1ec3e6b56da01cf2b6ab9aeef7fea4212b6feb252c89f2332a8e265fa920d4e6973fe'
+  # config.secret_key = 'bb82c445b18cca9ef744a9a083f79c00f536b83a9379dabc90e12a0f8611fd8f6669d8ca2d0841cd322f3aa5c0e37a049bdfaa9b4114dd30739f9cf6b26cae78'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  #config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-  config.mailer_sender = "admin@ronanclarke.com"
+  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
@@ -95,14 +95,14 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = 'e538e1edcb83bf8734f186955a1f92b59c20235d1b085fd04a33f9a1a5ad0445c1e806fc882d62a8c7e027696a3b28e5c852a2dbbf77a4eb63139d3c4fec24c0'
+  # config.pepper = '4dc8751d7a50fb4d0c8ee0eb3d93c048d03826ec92b21a4a31d7ccde8ccf0691c61b072aabe05cea8c2ff72f28c20bbbbefd252461f0c6bc2002c0ff212764e8'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
-  # confirming his account. For instance, if set to 2.days, the user will be
-  # able to access the website for two days without confirming his account,
+  # confirming their account. For instance, if set to 2.days, the user will be
+  # able to access the website for two days without confirming their account,
   # access will be blocked just in the third day. Default is 0.days, meaning
-  # the user cannot access the website without confirming his account.
+  # the user cannot access the website without confirming their account.
   # config.allow_unconfirmed_access_for = 2.days
 
   # A period that the user is allowed to confirm their account before their
@@ -134,7 +134,7 @@ Devise.setup do |config|
   # config.rememberable_options = {}
 
   # ==> Configuration for :validatable
-  # Range for password length. Default is 8..128.
+  # Range for password length.
   config.password_length = 8..128
 
   # Email regex used to validate email formats. It simply asserts that
@@ -228,24 +228,6 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
-  #
-
-  # we now load these from api_keys.yml
-
-  # production version
-  #campaign_monitor_key = "99737"
-  #campaign_monitor_secret = "g000yP00lkVOw0tZfr7vX5dKZZw900a00t0bj3RwYT0jOZSd000b0AI7lr0ypBB50j0vRyzy09uW0If0"
-  #config.omniauth  :createsend, campaign_monitor_key, campaign_monitor_secret, :scope => 'ViewReports,CreateCampaigns,SendCampaigns,ManageLists,ImportSubscribers'
-
-  # local dev
-  #campaign_monitor_key = "99737"
-  #campaign_monitor_secret = "7I37P565ZDKA5H5W3xIio55HLcgT1h55gS5Yk5BS5kx8cW65oN5uiDCy5kV54cD5277Rl5qy21qvol4U"
-  #config.omniauth  :createsend, campaign_monitor_key, campaign_monitor_secret, :scope => 'ViewReports,CreateCampaigns,SendCampaigns,ManageLists,ImportSubscribers'
-
-  API_KEYS = YAML::load_file("#{Rails.root}/config/api_keys.yml")[Rails.env]
-  config.omniauth :createsend , API_KEYS['campaign_monitor']['api_key'], API_KEYS['campaign_monitor']['api_secret'],:scope => 'ViewReports,CreateCampaigns,SendCampaigns,ManageLists,ImportSubscribers'
-
-
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
