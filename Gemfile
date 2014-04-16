@@ -100,7 +100,7 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 
 group :test do
-
+  gem 'cucumber-rails', :require => false
   gem "factory_girl_rails"
   gem "capybara"
   gem "capybara-webkit"
